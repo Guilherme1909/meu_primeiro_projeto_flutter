@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
                 'https://static.vecteezy.com/ti/vetor-gratis/t2/3179642-halter-equipamento-ginasio-icone-isolado-gratis-vetor.jpg'),
             Task('Ler', 2,
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWkhWrRd8F5kRK2QTBCFWxR3yRqcr_WBSuVFNftwFNHL-Q4JE2EvOqMe4SdSe7Y2XgGWQ&usqp=CAU'),
-            Task('Trabalhar', 3, 'https://www.officetotal.com.br/wp-content/uploads/2022/02/desktop-para-escritorio.jpg'),
+            Task('Trabalhar', 3,
+                'https://www.officetotal.com.br/wp-content/uploads/2022/02/desktop-para-escritorio.jpg'),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -110,31 +111,31 @@ class _TaskState extends State<Task> {
                                 )),
                             Row(
                               children: [
-                                Icon(
-                                  Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 1) ? Colors.blue : Colors.blue[100]
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 2) ? Colors.blue : Colors.blue[100]
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 3) ? Colors.blue : Colors.blue[100]
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade >= 4) ? Colors.blue : Colors.blue[100]
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  size: 15,
-                                  color: (widget.dificuldade == 5) ? Colors.blue : Colors.blue[100]
-                                ),
+                                Icon(Icons.star,
+                                    size: 15,
+                                    color: (widget.dificuldade >= 1)
+                                        ? Colors.blue
+                                        : Colors.blue[100]),
+                                Icon(Icons.star,
+                                    size: 15,
+                                    color: (widget.dificuldade >= 2)
+                                        ? Colors.blue
+                                        : Colors.blue[100]),
+                                Icon(Icons.star,
+                                    size: 15,
+                                    color: (widget.dificuldade >= 3)
+                                        ? Colors.blue
+                                        : Colors.blue[100]),
+                                Icon(Icons.star,
+                                    size: 15,
+                                    color: (widget.dificuldade >= 4)
+                                        ? Colors.blue
+                                        : Colors.blue[100]),
+                                Icon(Icons.star,
+                                    size: 15,
+                                    color: (widget.dificuldade >= 5)
+                                        ? Colors.blue
+                                        : Colors.blue[100]),
                               ],
                             )
                           ],
@@ -171,7 +172,9 @@ class _TaskState extends State<Task> {
                       child: Container(
                         child: LinearProgressIndicator(
                           color: Colors.white,
-                          value: nivel / 10,
+                          value: (widget.dificuldade > 0)
+                              ? (nivel / widget.dificuldade) / 10
+                              : 1,
                         ),
                         width: 200,
                       ),
