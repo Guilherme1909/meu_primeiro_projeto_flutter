@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool opacidade = true;
 
   // This widget is the root of your application.
   @override
@@ -20,28 +27,34 @@ class MyApp extends StatelessWidget {
           leading: Container(),
           title: Text('Tarefas'),
         ),
-        body: ListView(
-          children: [
-            Task('Aprender Flutter comendo sucrilhos de café da manhã', 4,
-                'https://play-lh.googleusercontent.com/5e7z5YCt7fplN4qndpYzpJjYmuzM2WSrfs35KxnEw-Ku1sClHRWHoIDSw3a3YS5WpGcI'),
-            Task('Jogar CS', 1,
-                'https://http2.mlstatic.com/D_NQ_NP_728043-MLB27920401299_082018-O.jpg'),
-            Task('Academia', 5,
-                'https://static.vecteezy.com/ti/vetor-gratis/t2/3179642-halter-equipamento-ginasio-icone-isolado-gratis-vetor.jpg'),
-            Task('Ler', 2,
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWkhWrRd8F5kRK2QTBCFWxR3yRqcr_WBSuVFNftwFNHL-Q4JE2EvOqMe4SdSe7Y2XgGWQ&usqp=CAU'),
-            Task('Trabalhar', 3,
-                'https://www.officetotal.com.br/wp-content/uploads/2022/02/desktop-para-escritorio.jpg'),
-          ],
+        body: AnimatedOpacity(
+          opacity: opacidade ? 1 : 0,
+          duration: Duration(milliseconds: 500),
+          child: ListView(
+            children: [
+              Task('Aprender Flutter comendo sucrilhos de café da manhã', 4,
+                  'https://play-lh.googleusercontent.com/5e7z5YCt7fplN4qndpYzpJjYmuzM2WSrfs35KxnEw-Ku1sClHRWHoIDSw3a3YS5WpGcI'),
+              Task('Jogar CS', 1,
+                  'https://http2.mlstatic.com/D_NQ_NP_728043-MLB27920401299_082018-O.jpg'),
+              Task('Academia', 5,
+                  'https://static.vecteezy.com/ti/vetor-gratis/t2/3179642-halter-equipamento-ginasio-icone-isolado-gratis-vetor.jpg'),
+              Task('Ler', 2,
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWkhWrRd8F5kRK2QTBCFWxR3yRqcr_WBSuVFNftwFNHL-Q4JE2EvOqMe4SdSe7Y2XgGWQ&usqp=CAU'),
+              Task('Trabalhar', 3,
+                  'https://www.officetotal.com.br/wp-content/uploads/2022/02/desktop-para-escritorio.jpg'),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
-            child: Text(
-              '+',
-              style: TextStyle(color: Colors.white, fontSize: 40),
-            ),
             onPressed: () {
-              // ADD NOVA TASK
-            }),
+              setState(() {
+                opacidade = !opacidade;
+              });
+            },
+            child: Text(
+              '-',
+              style: TextStyle(color: Colors.white, fontSize: 40),
+            )),
       ),
     );
   }
@@ -73,29 +86,37 @@ class _TaskState extends State<Task> {
         child: Stack(
           children: [
             Container(
-              height: 140,
               decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15.0),
-                  )),
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              height: 140,
             ),
             Column(
               children: [
                 Container(
-                    color: Colors.white,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
                     height: 100,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          color: Colors.black26,
-                          width: 80,
+                          decoration: BoxDecoration(
+                            color: Colors.black26,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          width: 70,
                           height: 100,
                           // Pra colocar imagem da net
-                          child: Image.network(
-                            widget.imagem,
-                            fit: BoxFit.cover,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(5.0),
+                            child: Image.network(
+                              widget.imagem,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         Column(
