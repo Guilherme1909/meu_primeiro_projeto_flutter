@@ -54,7 +54,7 @@ class _TaskState extends State<Task> {
                         // Pra colocar imagem da net
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(5.0),
-                          child: Image.network(
+                          child: Image.asset(
                             widget.imagem,
                             fit: BoxFit.cover,
                           ),

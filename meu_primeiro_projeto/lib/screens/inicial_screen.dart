@@ -27,27 +27,27 @@ class _InicialScreenState extends State<InicialScreen> {
             Task(
               'Aprender Flutter comendo sucrilhos de café da manhã',
               4,
-              'https://play-lh.googleusercontent.com/5e7z5YCt7fplN4qndpYzpJjYmuzM2WSrfs35KxnEw-Ku1sClHRWHoIDSw3a3YS5WpGcI',
+              'assets/images/dash.png',
             ),
             Task(
               'Jogar CS',
               1,
-              'https://http2.mlstatic.com/D_NQ_NP_728043-MLB27920401299_082018-O.jpg',
+              'assets/images/csgo.jpg',
             ),
             Task(
               'Academia',
               5,
-              'https://static.vecteezy.com/ti/vetor-gratis/t2/3179642-halter-equipamento-ginasio-icone-isolado-gratis-vetor.jpg',
+              'assets/images/academia.webp',
             ),
             Task(
               'Ler',
               2,
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWkhWrRd8F5kRK2QTBCFWxR3yRqcr_WBSuVFNftwFNHL-Q4JE2EvOqMe4SdSe7Y2XgGWQ&usqp=CAU',
+              'assets/images/livro.jpg',
             ),
             Task(
-              'Trabalhar',
+              'Meditar',
               3,
-              'https://www.officetotal.com.br/wp-content/uploads/2022/02/desktop-para-escritorio.jpg',
+              'assets/images/meditar.jpeg',
             ),
             SizedBox(height: 80,),
           ],
