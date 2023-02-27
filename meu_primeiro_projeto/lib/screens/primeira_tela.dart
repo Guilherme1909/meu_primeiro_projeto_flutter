@@ -44,7 +44,7 @@ class MyFirstWidget extends StatelessWidget {
             color: Colors.purple,
             width: 500,
             height: 50,
-            child: Text(
+            child: const Text(
               'Bloqueio!',
               style: TextStyle(
                   color: Colors.black, fontSize: 40, inherit: false),
@@ -53,9 +53,9 @@ class MyFirstWidget extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              print('Você apertou o Botão!');
+              // print('Você apertou o Botão!');
             },
-            child: Text('BUTTON'),
+            child: const Text('BUTTON'),
           ),
         ],
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meu_primeiro_projeto/task.dart';
+import 'package:meu_primeiro_projeto/components/task.dart';
 
 class InicialScreen extends StatefulWidget {
 
@@ -17,13 +17,13 @@ class _InicialScreenState extends State<InicialScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
-        title: Text('Tarefas'),
+        title: const Text('Tarefas'),
       ),
       body: AnimatedOpacity(
         opacity: opacidade ? 1 : 0,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         child: ListView(
-          children: [
+          children: const [
             Task(
               'Aprender Flutter comendo sucrilhos de café da manhã',
               4,
@@ -49,6 +49,7 @@ class _InicialScreenState extends State<InicialScreen> {
               3,
               'https://www.officetotal.com.br/wp-content/uploads/2022/02/desktop-para-escritorio.jpg',
             ),
+            SizedBox(height: 80,),
           ],
         ),
       ),
@@ -58,7 +59,7 @@ class _InicialScreenState extends State<InicialScreen> {
               opacidade = !opacidade;
             });
           },
-          child: Text(
+          child: const Text(
             '-',
             style: TextStyle(color: Colors.white, fontSize: 40),
           )),
