@@ -18,6 +18,27 @@ class Task extends StatefulWidget {
 
 class _TaskState extends State<Task> {
   int nivel = 0;
+  int colorNivel = 0;
+  List listColors = [
+    Colors.blue,
+    Colors.green,
+    Colors.yellow,
+    Colors.orange,
+    Colors.red,
+    Colors.purple,
+    Colors.black,
+  ];
+
+  void incrementNivel() {
+    if (nivel < (widget.dificuldade * 10)) {
+      nivel++;
+    } else {
+      if (colorNivel < 6) {
+        nivel = 1;
+        colorNivel++;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +49,7 @@ class _TaskState extends State<Task> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: listColors[colorNivel],
               borderRadius: BorderRadius.circular(10.0),
             ),
             height: 140,
@@ -76,26 +97,30 @@ class _TaskState extends State<Task> {
                           )
                         ],
                       ),
-                      SizedBox(
-                        height: 52,
-                        width: 52,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              // SetState - Para ocorrer a atualização simultânea
-                              setState(() {
-                                nivel++;
-                              });
-                            },
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: const [
-                                Icon(Icons.arrow_drop_up),
-                                Text(
-                                  'UP',
-                                  style: TextStyle(fontSize: 15),
-                                )
-                              ],
-                            )),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          height: 52,
+                          width: 52,
+                          child: ElevatedButton(
+                              onPressed: () {
+                                // SetState - Para ocorrer a atualização simultânea
+                                setState(() {
+                                  incrementNivel();
+                                });
+                              },
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: const [
+                                  Icon(Icons.arrow_drop_up),
+                                  Text(
+                                    'UP',
+                                    style: TextStyle(fontSize: 15),
+                                  )
+                                ],
+                              )),
+                        ),
                       )
                     ],
                   )),

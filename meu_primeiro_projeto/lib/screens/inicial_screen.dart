@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:meu_primeiro_projeto/components/task.dart';
 
 class InicialScreen extends StatefulWidget {
-
   const InicialScreen({Key? key}) : super(key: key);
 
   @override
@@ -49,20 +48,20 @@ class _InicialScreenState extends State<InicialScreen> {
               3,
               'assets/images/meditar.jpeg',
             ),
-            SizedBox(height: 80,),
+            SizedBox(
+              height: 80,
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              opacidade = !opacidade;
-            });
-          },
-          child: const Text(
-            '-',
-            style: TextStyle(color: Colors.white, fontSize: 40),
-          )),
+        onPressed: () {
+          setState(() {
+            opacidade = !opacidade;
+          });
+        },
+        child: const Icon(Icons.remove_red_eye),
+      ),
     );
   }
 }
