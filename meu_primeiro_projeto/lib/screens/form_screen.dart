@@ -35,6 +35,12 @@ class _FormScreenState extends State<FormScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    validator: (String? value) {
+                      if (value != null && value.isEmpty) {
+                        return 'Insira o nome da Tarefa.';
+                      }
+                      return null;
+                    },
                     controller: nameController,
                     textAlign: TextAlign.center,
                     decoration: const InputDecoration(
@@ -48,6 +54,14 @@ class _FormScreenState extends State<FormScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          int.parse(value) > 5 ||
+                          int.parse(value) < 1) {
+                        return 'Insira uma dificuldade entre 1 e 5.';
+                      }
+                      return null;
+                    },
                     keyboardType: TextInputType.number,
                     controller: difficultyController,
                     textAlign: TextAlign.center,
@@ -62,10 +76,10 @@ class _FormScreenState extends State<FormScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    keyboardType: TextInputType.url,
                     onChanged: (text) {
                       setState(() {});
                     },
+                    keyboardType: TextInputType.url,
                     controller: imageController,
                     textAlign: TextAlign.center,
                     decoration: const InputDecoration(
