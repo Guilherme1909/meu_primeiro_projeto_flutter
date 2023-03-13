@@ -123,6 +123,7 @@ class _FormScreenState extends State<FormScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
+                      // exclamation (!) means that the value can be null
                       if (_formKey.currentState!.validate()) {
                         print(nameController);
                         print(int.parse(difficultyController.text));
@@ -132,6 +133,7 @@ class _FormScreenState extends State<FormScreen> {
                             content: Text('Printando nova Tarefa'),
                           ),
                         );
+                        Navigator.pop(context);
                       }
                     },
                     child: const Text('Adicionar'),
